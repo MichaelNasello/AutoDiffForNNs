@@ -18,7 +18,8 @@ Consider the following example with:
 
 We can compute model outputs as:
 
-    hidden = xW + b
+    hidden = x @ W1 + b1
+    y_hat = hidden @ W2 + b2
 
 The MSE loss is simply:
 
@@ -123,7 +124,7 @@ class Tensor:
         self.input = [self.v, y.v]
 
         # Perform MSE operation
-        mse_loss = (self.v - y.v)**2
+        mse_loss = ((self.v - y.v)**2) / 2
 
         # Return Tensor with mean (across batch and output feature dimension) scalar loss
         return Tensor(
@@ -187,7 +188,7 @@ class Tensor:
 
         # dL/dx = (y_hat - y) * (2 / batch_size)
         del_loss_del_in = Tensor(
-            (self.input[0] - self.input[1]).v * np.array([2 / batch_size])
+            (self.input[0] - self.input[1]).v * np.array([1 / batch_size])
         )
 
         return del_loss_del_in

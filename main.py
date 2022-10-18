@@ -92,8 +92,8 @@ class ModelWithAutoDiff:
                 self.print_gradients_for_first_layer()
 
             # Generate outputs and loss
-            model_outputs = self(inputs)
-            loss = model_outputs.mse_loss(targets)
+            model_outputs = self(x)
+            loss = model_outputs.mse_loss(y)
 
             # Perform backward pass, updating model parameter gradients
             loss.backwards(

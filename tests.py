@@ -73,39 +73,39 @@ if __name__ == '__main__':
         # Assert all model parameter gradients are the same (check of backward pass)
         assert np.allclose(
             autodiff_model.w1.grad.v,
-            np.transpose(torch_model[0].weight.grad),
+            np.transpose(torch_model[0].weight.grad / 2),  # Divide by two as our loss function is 1 / 2 of PyTorch's
             atol=1e-3,
             rtol=1e-5
         )
         assert np.allclose(
             autodiff_model.b1.grad.v,
-            torch_model[0].bias.grad,
+            torch_model[0].bias.grad / 2,
             atol=1e-3,
             rtol=1e-5
         )
 
         assert np.allclose(
             autodiff_model.w2.grad.v,
-            np.transpose(torch_model[2].weight.grad),
+            np.transpose(torch_model[2].weight.grad / 2),
             atol=1e-3,
             rtol=1e-5
         )
         assert np.allclose(
             autodiff_model.b2.grad.v,
-            torch_model[2].bias.grad,
+            torch_model[2].bias.grad / 2,
             atol=1e-3,
             rtol=1e-5
         )
 
         assert np.allclose(
             autodiff_model.w3.grad.v,
-            np.transpose(torch_model[4].weight.grad),
+            np.transpose(torch_model[4].weight.grad / 2),
             atol=1e-3,
             rtol=1e-5
         )
         assert np.allclose(
             autodiff_model.b3.grad.v,
-            torch_model[4].bias.grad,
+            torch_model[4].bias.grad / 2,
             atol=1e-3,
             rtol=1e-5
         )
