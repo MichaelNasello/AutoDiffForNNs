@@ -133,6 +133,8 @@ class ModelWithAutoDiff:
         plt.xlabel('Epoch')
         plt.ylabel('Loss')
         plt.title('Loss vs Epoch')
+
+        plt.savefig('training_curve.png')
         plt.show()
 
 
@@ -144,7 +146,7 @@ if __name__ == '__main__':
         test_values = pickle.load(file)
 
     inputs = Tensor(test_values['inputs'], requires_grad=False)
-    targets = Tensor(np.expand_dims(test_values['targets'], axis=1))
+    targets = Tensor(np.expand_dims(test_values['targets'], axis=1), requires_grad=False)
 
     # Training hyperparameters
     num_epochs = 6

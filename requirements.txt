@@ -1,9 +1,7 @@
-certifi @ file:///private/var/folders/sy/f16zz6x50xz3113nwtb9bvq00000gp/T/abs_05nm_gqf36/croots/recipe/certifi_1663615689491/work/certifi
 charset-normalizer==2.1.1
 contourpy==1.0.5
 cycler==0.11.0
 fonttools==4.37.4
-idna==3.4
 joblib==1.2.0
 kiwisolver==1.4.4
 matplotlib==3.5.0
